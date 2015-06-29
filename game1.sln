@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "game1", "game1\game1.csproj", "{EB8F6AA0-C7E0-4961-9CCA-78E58DCA4EAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Android", "Android\Android.csproj", "{09801F59-FA9A-4ED7-A893-2DE5957E0E88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09801F59-FA9A-4ED7-A893-2DE5957E0E88}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{09801F59-FA9A-4ED7-A893-2DE5957E0E88}.Debug|x86.Build.0 = Debug|Any CPU
+		{09801F59-FA9A-4ED7-A893-2DE5957E0E88}.Release|x86.ActiveCfg = Release|Any CPU
+		{09801F59-FA9A-4ED7-A893-2DE5957E0E88}.Release|x86.Build.0 = Release|Any CPU
+		{EB8F6AA0-C7E0-4961-9CCA-78E58DCA4EAD}.Debug|x86.ActiveCfg = Debug|x86
+		{EB8F6AA0-C7E0-4961-9CCA-78E58DCA4EAD}.Debug|x86.Build.0 = Debug|x86
+		{EB8F6AA0-C7E0-4961-9CCA-78E58DCA4EAD}.Release|x86.ActiveCfg = Release|x86
+		{EB8F6AA0-C7E0-4961-9CCA-78E58DCA4EAD}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+EndGlobal
