@@ -61,7 +61,6 @@ namespace game1
 
 			if(gameObjects.Ball.Count == 0)
 			{
-				this.HasGameStarted = false;
 				Reset(gameObjects);
 			}
 		}
@@ -121,6 +120,7 @@ namespace game1
 
 		public void Reset(GameObjects gameObjects)
 		{
+			gameObjects.Ball.Clear();
 			gameObjects.Score.UpdateScore(PlayerScore, ComputerScore);
 			gameObjects.Stamina.Reset();
 			gameObjects.PlayerPaddle.Reset();
@@ -128,6 +128,7 @@ namespace game1
 			gameObjects.Ball.Add(new Ball(gameObjects.BallTexture, Vector2.Zero, gameObjects.GameBoundries));
 			gameObjects.Ball[0].AttachTo(gameObjects.PlayerPaddle);
 			gameObjects.Boost.Clear();
+			gameObjects.Controller.HasGameStarted = false;
 		}
 	}
 }

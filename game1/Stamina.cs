@@ -38,9 +38,12 @@ namespace game1 {
 			this.gameTime = gameTime;
 			this.staminaScore = this.maxTime - ((int)this.gameTime.TotalGameTime.TotalSeconds - this.lastTime);
 			if (gameObjects.Controller.HasGameStarted == true) {	// update Stamina on screen
-				if (this.staminaScore <= 0 && this.staminaLevel >= 1) {
+				if (this.staminaScore <= 0 && this.staminaLevel > 1) {
 					this.staminaLevel -= 1;
 					this.maxTime += maxTime_i;
+				}
+				else if (this.staminaScore <= 0 && this.staminaLevel <= 1) {
+					gameObjects.Controller.Reset(gameObjects);
 				}
 				UpdateStamina();
 			}
@@ -83,7 +86,7 @@ namespace game1 {
 		public void UpdateStamina(string customText = null)
 		{
 			if (customText == null) {
-				this.scoreText = string.Format("{0}\n{1}", this.staminaScore, "Level "+this.staminaLevel);
+				this.scoreText = string.Format("{0}", this.staminaScore);
 			}
 			else {
 				this.scoreText = string.Format("{0}", customText);
