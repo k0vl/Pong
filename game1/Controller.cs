@@ -80,11 +80,12 @@ namespace game1
 							if(boost.boostTypes == BoostTypes.Speed && ball.speedFlag < 1)
 							{
 								ball.Velocity = new Vector2(ball.Velocity.X * 1.5f, ball.Velocity.Y * 1.5f);
-
+								gameObjects.Stamina.AddMaxTime(5);
 							}
 							else if(boost.boostTypes == BoostTypes.Redirect)
 							{
 								ball.Velocity = new Vector2(ball.Velocity.X, 0);
+								gameObjects.Stamina.AddMaxTime(3);
 							}
 							else if(boost.boostTypes == BoostTypes.Slow && ball.speedFlag > -1)
 							{
@@ -94,6 +95,7 @@ namespace game1
 							else if(boost.boostTypes == BoostTypes.Deflect)
 							{
 								ball.Velocity = new Vector2(-ball.Velocity.X, ball.Velocity.Y);
+								gameObjects.Stamina.AddMaxTime(3);
 							}
 							else if(boost.boostTypes == BoostTypes.Split)
 							{
@@ -103,6 +105,7 @@ namespace game1
 								newball2.Velocity=new Vector2(ball.Velocity.X, -ball.Velocity.Y);
 								toAdd.Add(newball1);
 								toAdd.Add(newball2);
+								gameObjects.Stamina.AddMaxTime(10);
 							}
 							else
 							{
