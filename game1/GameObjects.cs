@@ -19,6 +19,7 @@ namespace game1
 		public Paddle ComputerPaddle { get; set; }
 		public List<Ball> Ball { get; set; }
 		public Score Score { get; set; }
+		public Stamina Stamina { get; set; }
 		public TouchInput TouchInput { get; set; }
 		public List<Boost> Boost {get; set;}
 		public Controller Controller {get; set;}

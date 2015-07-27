@@ -96,6 +96,7 @@ namespace game1
 				ComputerPaddle = new Paddle(paddleTexture, computerPaddleLocation , gameBoundries, PlayerTypes.Computer), 
 				Ball = new List<Ball>{new Ball(Content.Load<Texture2D>("Ball"), Vector2.Zero, gameBoundries)},
 				Score = new Score(Content.Load<SpriteFont>("fonts/Arial"), gameBoundries),
+				Stamina = new Stamina(Content.Load<SpriteFont>("fonts/Arial"), gameBoundries),
 				Controller = new Controller(),
 				Boost = new List<Boost>{},
 				GameBoundries = gameBoundries,
@@ -133,6 +134,7 @@ namespace game1
 			gameObjects.PlayerPaddle.Update(gameTime, gameObjects);
 			gameObjects.ComputerPaddle.Update(gameTime, gameObjects);
 			gameObjects.Score.Update(gameTime, gameObjects);
+			gameObjects.Stamina.Update(gameTime, gameObjects);
 			if(gameObjects.Boost.Count < 7)
 			{
 				if(gameObjects.Ball[0].attachedToPaddle == null && random.Next(10, 100) == 20)
@@ -175,6 +177,7 @@ namespace game1
 				ball.Draw(spriteBatch);
 			}
 			gameObjects.Score.Draw(spriteBatch);
+			gameObjects.Stamina.Draw(spriteBatch);
 			foreach (Boost boost in gameObjects.Boost)
 			{
 				boost.Draw(spriteBatch);

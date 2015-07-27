@@ -45,6 +45,7 @@ namespace game1
 				var newVelocity = new Vector2(500f, attachedToPaddle.Velocity.Y * 0.75f);
 				Velocity = newVelocity;
 				attachedToPaddle = null;
+				gameObjects.Controller.HasGameStarted = true;
 			}
 
 			//second, update postion if still attached to paddle

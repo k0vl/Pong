@@ -32,12 +32,12 @@ namespace game1
 		{
 			if(playerType == PlayerTypes.Human)
 			{
-				if(Keyboard.GetState().IsKeyDown(Keys.Up) || gameObjects.TouchInput.Up)
+				if(Keyboard.GetState().IsKeyDown(Keys.Up) || Keyboard.GetState().IsKeyDown(Keys.Left) || gameObjects.TouchInput.Up)
 				{
 					Velocity = new Vector2(0, -PADDLE_SPEED);
 				}
 
-				if(Keyboard.GetState().IsKeyDown(Keys.Down) || gameObjects.TouchInput.Down)
+				if(Keyboard.GetState().IsKeyDown(Keys.Down) || Keyboard.GetState().IsKeyDown(Keys.Right) || gameObjects.TouchInput.Down)
 				{
 					Velocity = new Vector2(0, PADDLE_SPEED);
 				}

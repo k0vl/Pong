@@ -32,6 +32,7 @@ namespace game1
 	{
 		public int PlayerScore { get; set; }
 		public int ComputerScore { get; set; }
+		public bool HasGameStarted = false;
 
 		public Controller()
 		{
@@ -60,6 +61,7 @@ namespace game1
 
 			if(gameObjects.Ball.Count == 0)
 			{
+				this.HasGameStarted = false;
 				Reset(gameObjects);
 			}
 		}
@@ -79,7 +81,7 @@ namespace game1
 							if(boost.boostTypes == BoostTypes.Speed && ball.speedFlag < 1)
 							{
 								ball.Velocity = new Vector2(ball.Velocity.X * 1.5f, ball.Velocity.Y * 1.5f);
-								ball.speedFlag += 1;
+
 							}
 							else if(boost.boostTypes == BoostTypes.Redirect)
 							{
@@ -120,6 +122,7 @@ namespace game1
 		public void Reset(GameObjects gameObjects)
 		{
 			gameObjects.Score.UpdateScore(PlayerScore, ComputerScore);
+			gameObjects.Stamina.Reset();
 			gameObjects.PlayerPaddle.Reset();
 			gameObjects.ComputerPaddle.Reset();
 			gameObjects.Ball.Add(new Ball(gameObjects.BallTexture, Vector2.Zero, gameObjects.GameBoundries));
