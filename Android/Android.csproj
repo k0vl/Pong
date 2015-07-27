@@ -54,9 +54,6 @@
     <Compile Include="..\game1\Ball.cs">
       <Link>Ball.cs</Link>
     </Compile>
-    <Compile Include="..\game1\GameObjects.cs">
-      <Link>GameObjects.cs</Link>
-    </Compile>
     <Compile Include="..\game1\Paddle.cs">
       <Link>Paddle.cs</Link>
     </Compile>
@@ -68,6 +65,15 @@
     </Compile>
     <Compile Include="..\game1\Game1.cs">
       <Link>Game1.cs</Link>
+    </Compile>
+    <Compile Include="..\game1\GameObjects.cs">
+      <Link>GameObjects.cs</Link>
+    </Compile>
+    <Compile Include="..\game1\Boost.cs">
+      <Link>Boost.cs</Link>
+    </Compile>
+    <Compile Include="..\game1\Controller.cs">
+      <Link>Controller.cs</Link>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -95,10 +101,39 @@
       <Link>Assets\Content\Ball.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidAsset>
+    <AndroidAsset Include="..\game1\Content\Boost\Boost1.png">
+      <Link>Assets\Content\Boost\Boost1.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="..\game1\Content\Boost\Boost2.png">
+      <Link>Assets\Content\Boost\Boost2.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="..\game1\Content\Boost\Boost3.png">
+      <Link>Assets\Content\Boost\Boost3.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="..\game1\Content\Boost\Boost4.png">
+      <Link>Assets\Content\Boost\Boost4.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="..\game1\Content\Boost\Boost5.png">
+      <Link>Assets\Content\Boost\Boost5.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="..\game1\Content\Boost\Boost6.png">
+      <Link>Assets\Content\Boost\Boost6.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="..\game1\Content\Boost\Boost7.png">
+      <Link>Assets\Content\Boost\Boost7.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\Content\" />
     <Folder Include="Assets\Content\fonts\" />
+    <Folder Include="Assets\Content\Boost\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

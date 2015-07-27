@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -43,9 +43,11 @@
     <Compile Include="Paddle.cs" />
     <Compile Include="Ball.cs" />
     <Compile Include="Sprite.cs" />
-    <Compile Include="GameObjects.cs" />
     <Compile Include="Score.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Boost.cs" />
+    <Compile Include="GameObjects.cs" />
+    <Compile Include="Controller.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />
@@ -62,8 +64,30 @@
     <Content Include="Content\fonts\Arial.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Boost\Boost1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Boost\Boost2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Boost\Boost3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Boost\Boost4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Boost\Boost5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Boost\Boost6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Boost\Boost7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\fonts\" />
+    <Folder Include="Content\Boost\" />
   </ItemGroup>
 </Project>

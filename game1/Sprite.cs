@@ -14,12 +14,12 @@ namespace game1
 	public abstract class Sprite
 	{
 		protected readonly Texture2D texture;
-		public  Vector2 Location;
+		public Vector2 Location;
 		protected readonly Rectangle gameBoundries;
 		public int Width {get {return (int)(texture.Width * Game1.DeviceScale);}}
 		public int Height {get {return (int)(texture.Height * Game1.DeviceScale);}}
 		public Rectangle BoundingBox {get {return new Rectangle((int)Location.X, (int)Location.Y, Width, Height);}}
-		public Vector2 Velocity {get; protected set;}
+		public Vector2 Velocity {get; set;}
 
 		public Sprite(Texture2D texture, Vector2 location, Rectangle gameBoundries)
 		{

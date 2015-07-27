@@ -17,7 +17,7 @@ namespace game1
 	{
 		public const float PADDLE_SPEED = 300f;
 		static Random random = new Random();
-		float reactionTreshold = random.Next(10, 30);
+		float reactionTreshold;
 			
 		private readonly PlayerTypes playerType;
 
@@ -25,29 +25,30 @@ namespace game1
 			: base(texture, location, gameBoundries)
 		{
 			this.playerType = playerType;
+			this.reactionTreshold = random.Next(0, 5);
 		}
 
 		public override void Update(GameTime gameTime, GameObjects gameObjects)
 		{
 			if(playerType == PlayerTypes.Human)
 			{
-				if(Keyboard.GetState().IsKeyDown(Keys.Left) || gameObjects.TouchInput.Up)
+				if(Keyboard.GetState().IsKeyDown(Keys.Up) || gameObjects.TouchInput.Up)
 				{
 					Velocity = new Vector2(0, -PADDLE_SPEED);
 				}
 
-				if(Keyboard.GetState().IsKeyDown(Keys.Right) || gameObjects.TouchInput.Down)
+				if(Keyboard.GetState().IsKeyDown(Keys.Down) || gameObjects.TouchInput.Down)
 				{
 					Velocity = new Vector2(0, PADDLE_SPEED);
 				}
 			}
 			else if(playerType == PlayerTypes.Computer)
 			{
-				if(gameObjects.Ball.Location.Y + gameObjects.Ball.Height < Location.Y - reactionTreshold)
+				if(gameObjects.Ball[0].Location.Y + gameObjects.Ball[0].Height < Location.Y - reactionTreshold)
 				{
 					Velocity = new Vector2(0, -PADDLE_SPEED);
 				}
-				if(gameObjects.Ball.Location.Y > Location.Y + Height + reactionTreshold)
+				if(gameObjects.Ball[0].Location.Y > Location.Y + Height + reactionTreshold)
 				{
 					Velocity = new Vector2(0, PADDLE_SPEED);
 				}
@@ -58,6 +59,10 @@ namespace game1
 
 		protected override void CheckBounds()
 		{
+			if(this.Location.Y <= 0 || (this.Location.Y + this.Height) >= gameBoundries.Height)
+			{
+				this.Velocity = Vector2.Zero;
+			}
 			Location.Y = MathHelper.Clamp(Location.Y, 0, gameBoundries.Height - this.Height);
 		}
 
