@@ -34,12 +34,12 @@ namespace game1
 			{
 				if(Keyboard.GetState().IsKeyDown(Keys.Up) || Keyboard.GetState().IsKeyDown(Keys.Left) || gameObjects.TouchInput.Up)
 				{
-					Velocity = new Vector2(0, -PADDLE_SPEED);
+					Velocity = new Vector2(0, -PADDLE_SPEED * gameObjects.Stamina.paddleSpeed);
 				}
 
 				if(Keyboard.GetState().IsKeyDown(Keys.Down) || Keyboard.GetState().IsKeyDown(Keys.Right) || gameObjects.TouchInput.Down)
 				{
-					Velocity = new Vector2(0, PADDLE_SPEED);
+					Velocity = new Vector2(0, PADDLE_SPEED * gameObjects.Stamina.paddleSpeed);
 				}
 			}
 			else if(playerType == PlayerTypes.Computer)

@@ -14,10 +14,14 @@ namespace game1 {
 		Vector2 position;
 		private float rotation, Height, Width;
 		private string scoreText = "STAMINA";
-		private int lastTime = 0;
+		private int lastTime = 0, maxTime, staminaScore = 0, staminaLevel;
+		public float paddleSpeed {get {return (float)staminaLevel/(float)staminaLevel_i;}}
+		public const int maxTime_i = 10, staminaLevel_i = 3;
 		private GameTime gameTime;
 
 		public Stamina(SpriteFont font, Rectangle gameBoundries) {
+			this.maxTime = maxTime_i;
+			this.staminaLevel = staminaLevel_i;
 			this.font = font;
 			this.Height = font.MeasureString("STAMINA").Y*Game1.DeviceScale;
 			this.Width =font.MeasureString("STAMINA").X*Game1.DeviceScale;
@@ -32,9 +36,15 @@ namespace game1 {
 
 		public void Update(GameTime gameTime, GameObjects gameObjects) {
 			this.gameTime = gameTime;
-			if (gameObjects.Controller.HasGameStarted == true)
+			this.staminaScore = this.maxTime - ((int)this.gameTime.TotalGameTime.TotalSeconds - this.lastTime);
+			if (gameObjects.Controller.HasGameStarted == true) {	// update Stamina on screen
+				if (this.staminaScore <= 0 && this.staminaLevel >= 1) {
+					this.staminaLevel -= 1;
+					this.maxTime += maxTime_i;
+				}
 				UpdateStamina();
-			else {
+			}
+			else {	// game hasn't started yet
 				UpdateStamina("");
 				this.Reset();
 			}
@@ -60,14 +70,20 @@ namespace game1 {
 			#endif
 		}
 
+		public void AddMaxTime(int addTime) {
+			this.maxTime += addTime;
+		}
+
 		public void Reset() {
 			this.lastTime = (int)this.gameTime.TotalGameTime.TotalSeconds;
+			this.maxTime = maxTime_i;
+			this.staminaLevel = staminaLevel_i;
 		}
 
 		public void UpdateStamina(string customText = null)
 		{
 			if (customText == null) {
-				this.scoreText = string.Format("{0}", (int)this.gameTime.TotalGameTime.TotalSeconds - this.lastTime);
+				this.scoreText = string.Format("{0}\n{1}", this.staminaScore, "Level "+this.staminaLevel);
 			}
 			else {
 				this.scoreText = string.Format("{0}", customText);
